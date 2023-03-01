@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<meta charset='utf-8' />
+<style>
+#canvas {
+  width: 600px;
+  height: 400px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px
+}
+#mode {
+  width: 200px;
+  display: inline-block;
+}
+#render {
+  margin-right: 20px;
+}
+p {
+  margin-top: 1rem;
+}
+.jumbotron {
+  padding: 2rem;
+}
+</style>
+<body>
+  <div>
+    <h1>WebAssembly Mandelbrot Set</h1>
+    <p>An exploration of various methods for creating WebAssembly modules using C, AssemblyScript, Emscripten, TypeScript and asm.js</p>
+    <p>see: <a href='https://github.com/ColinEberhardt/wasm-mandelbrot'>https://github.com/ColinEberhardt/wasm-mandelbrot</a></p>
+  </div>
+  <p class='lead'>Select an implementation, the click 'render'.</p>
+  <select id='mode' class='form-control'></select>
+  <button id='render' class='btn btn-primary'>Re-render</button>
+   <p id='description' class='lead'></p>
+  <canvas id='canvas' width='1200' height='800'></canvas>
+  <script>
+  
+    const importObject1 = {
+      env: {
+        memoryBase: 0,
+        tableBase: 0,
+        memory: new WebAssembly.Memory({
+          initial: 512
+        }),
+        table: new WebAssembly.Table({
+          initial: 0,
+          element: 'anyfunc'
+        })
+      }
+    };
+
+    const importObject = {
+      module: {},
+      env: {
+        memoryBase: 0,
+        tableBase: 0,
+        memory: new WebAssembly.Memory({
+          initial: 512
+        })
+      },
+      index: {
+            "console.log": (val) => console.log("log:", val)
+        }
+    };
+
+
+    var exports;
+    WebAssembly.instantiateStreaming(
+            fetch("mandelbrot.wasm"), importObject
+        ).then(
+            results => {
+                exports = results.instance.exports
+                //const Sum = result.instance.exports.Sum;
+                //console.log(Sum(4, 5));
+                //console.log(Sum(10, 10));
+
+                const WIDTH = 1200, HEIGHT = 800;
+
+                const config = {
+                  x: -0.7436447860,
+                  y: 0.1318252536,
+                  d: 0.00029336,
+                  iterations: 10000
+                };
+
+                results.instance.exports._mandelbrot(config.iterations, config.x, config.y, config.d);
+  
+                const imgData = ctx.createImageData(WIDTH, HEIGHT);
+                const offset = instance.exports._getImage();
+                const linearMemory = new Uint8Array(imports.env.memory.buffer, offset, WIDTH * HEIGHT * 4);
+                imgData.data.set(linearMemory);
+                ctx.putImageData(imgData, 0, 0);
+                      })
+                      .catch(
+                          error => console.error(error)
+                      )
+
+
+  </script>
+</body>

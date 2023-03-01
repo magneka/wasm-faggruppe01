@@ -1,0 +1,38 @@
+01_helloworld_c
+---------------
+Viser et enkelt helloworld (c), makefilen kan bygge til wasm, js og html.
+Du kan kjøre med wasmrun, node.js eller bruke html filen som er generert
+
+02_helloworld_cpp
+-----------------
+Viser et enkelt helloworld (c++), makefilen kan bygge til wasm, js og html.
+Du kan kjøre med wasmrun, node.js eller bruke html filen som er generert
+
+03_Cowsay_cpp
+-------------
+Viser et c++ program med en klasse, merk hvordan bindings exponeres.
+Merk at vi bruker den autogenererte js glue filen, mane har egen html file.
+Vi importerer wasm i index html filen. 
+Vi trigger bruk av klassen vha en knapp
+
+Kunne vi ha kjørt denne i et node program? Hva måtte vi gjort da?
+
+04_Streaming
+------------
+
+21_Js_from_c
+------------
+Her er det flere måter å kjøre javascript i fra C koden:
+    - EM_JS - lage javascript kode inni C koden
+
+Disse variantene kjører en eval():
+    - emscripten_run(_async)_script - Lag js kode on the fly
+    - emscripten_run_script_int - brukes her til å kalle js kode fra utsiden av C som returnerer int
+    - emscripten_run_script_string - som ovenfor men retur av streng
+
+For mer doumentasjon på dette:
+https://emscripten.org/docs/api_reference/emscripten.h.html
+
+
+
+

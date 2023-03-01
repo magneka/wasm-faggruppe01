@@ -1,0 +1,17 @@
+version: '3.7'
+
+services:
+  sample:
+    container_name: fgwasm01
+    # unngå command statement, for å la containeren bli kjørende
+    tty: true 
+    ports:
+      - "2222:2222"
+      - "3000:3000"
+      - "3080:80"
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - './source:/source'
+    command: '/bin/bash apache2ctl -D FOREGROUND'
