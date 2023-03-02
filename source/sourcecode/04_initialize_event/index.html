@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>WebAssembly Demo</title>
+  </head>
+  <body>
+    <h1>WebAssembly Demo</h1>
+    <script src="demo.js"></script>
+    <script>
+
+
+      // Wait for WASM (Emscripten) runtime to be ready
+      Module['onRuntimeInitialized'] = () => {
+       
+        console.log('Runtime Ready');
+        
+        console.log(Module.add(1, 2.3));
+        console.log(Module.exclaim("Hallaisen Ulriken faggruppe"));
+      }
+
+    </script>
+  </body>
+</html>
+

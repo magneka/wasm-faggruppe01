@@ -2,6 +2,8 @@
 ---------------
 Viser et enkelt helloworld (c), makefilen kan bygge til wasm, js og html.
 Du kan kjøre med wasmrun, node.js eller bruke html filen som er generert
+Se i Makefile filen.  Der ligger targets for å kjøre wasm filen direkte, 
+bruke node.js til å kjøre vha glue filen, eller lage web prosjekt.
 
 02_helloworld_cpp
 -----------------
@@ -10,15 +12,25 @@ Du kan kjøre med wasmrun, node.js eller bruke html filen som er generert
 
 03_Cowsay_cpp
 -------------
-Viser et c++ program med en klasse, merk hvordan bindings exponeres.
+Viser et c++ program med en klasse, merk hvordan bindings exponerer c kode.
 Merk at vi bruker den autogenererte js glue filen, mane har egen html file.
 Vi importerer wasm i index html filen. 
 Vi trigger bruk av klassen vha en knapp
 
 Kunne vi ha kjørt denne i et node program? Hva måtte vi gjort da?
 
-04_Streaming
+04_Initialize_event
+-------------------
+Se i html filen.  Der ser du at det brukes onRuntimeInitialized eventet.
+Det sørger for at du ikke prøver å kjøre wasm kode før den er ferdig initialisert.
+I de små programmene er initialiseringen ferdig instant, så der er det ikke
+noe problem
+
+05_Streaming
 ------------
+Her lastes wasm filen uten å bruke javascript glue koden.  Det er raskere.
+Da brukes fetch, som returnerer promise, og deretter kan du hente ut wasm 
+funksjonene på resolve objektet
 
 21_Js_from_c
 ------------

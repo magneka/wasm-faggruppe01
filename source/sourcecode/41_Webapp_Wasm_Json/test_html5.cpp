@@ -20,7 +20,7 @@ std::string getInput (std::string fieldName)
 {
   val document = val::global("document");
   val value = document.call<val>("getElementById", fieldName)["value"];
-    return value.as<std::string>();
+  return value.as<std::string>();
 }
 
 void setInput (std::string fieldname, std::string value )
@@ -81,9 +81,12 @@ int main()
 {
   printf ("Adding callback1\n");
   emscripten_set_click_callback("#btLoad", nullptr, false, on_load_click);
+
   printf ("Adding callback2\n");
   emscripten_set_click_callback("#btClear", nullptr, false, on_clear_click);
+
   printf ("Done adding callbacks\n");
+
   // To avoid exit after leaving main(), keeping events alive.
   EM_ASM(Module['noExitRuntime'] = true);
   printf ("No Exitruntime set\n");

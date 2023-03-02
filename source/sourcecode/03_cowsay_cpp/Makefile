@@ -5,6 +5,7 @@ install:
 	cp cowsay.html /var/www/html/03	
 	cp ./build/cowsay.js /var/www/html/03
 	cp ./build/cowsay.wasm /var/www/html/03
+	#gå til http://localhost:3080/03/cowsay.html
 
 clean:
 	rm -f ./build/* /var/www/html/03/*

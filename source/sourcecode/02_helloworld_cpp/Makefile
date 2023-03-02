@@ -13,6 +13,7 @@ run_binary:
 html:
 	mkdir -p /var/www/html/02
 	em++ hello.cpp -o /var/www/html/02/hello.html
+	#gå til http://localhost:3080/02/hello.html
 
 clean:
 	rm -f ./build/*  /var/www/html/02/*
