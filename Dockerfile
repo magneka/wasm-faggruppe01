@@ -6,7 +6,7 @@ ENV PATH="${PATH}:/root/.wasmer/bin"
 # add gfortran, debugging tools and make
 RUN apt-get update && \
     apt-get install -y emscripten curl mc make git 
-RUN apt-get -y install nodejs
+RUN apt-get -y install nodejs npm
 #RUN apt-get install -y python3 python-pip python-dev-is-python3
 RUN apt install -y apache2 apache2-utils
 RUN curl https://get.wasmer.io -sSfL | sh

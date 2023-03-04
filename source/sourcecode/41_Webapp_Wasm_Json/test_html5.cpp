@@ -56,7 +56,7 @@ void downloadFailed(emscripten_fetch_t *fetch) {
 int on_load_click(int eventType, const EmscriptenMouseEvent *mouseEvent, void *userData)
 {
   char* jsonUrl;
-  asprintf(&jsonUrl, "/HTML5Api/data%s.json", getInput("id").c_str());
+  asprintf(&jsonUrl, "/41/data%s.json", getInput("id").c_str());
 
   emscripten_fetch_attr_t attr;
   emscripten_fetch_attr_init(&attr);

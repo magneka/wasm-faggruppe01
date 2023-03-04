@@ -1,0 +1,82 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "chrome",
+            "request": "launch",
+            "name": "Kjør 01 helloworld.c",
+            "url": "http://localhost:3080/01/hello.html",
+            "webRoot": "${workspaceFolder}"
+        },
+        {
+            "type": "chrome",
+            "request": "launch",
+            "name": "Kjør 02 helloworld.c++",
+            "url": "http://localhost:3080/02/hello.html",
+            "webRoot": "${workspaceFolder}"
+        },
+        {
+            "type": "chrome",
+            "request": "launch",
+            "name": "Kjør 03 Cowsay",
+            "url": "http://localhost:3080/03/cowsay.html",
+            "webRoot": "${workspaceFolder}"
+        },
+        {
+            "type": "chrome",
+            "request": "launch",
+            "name": "Kjør 04 initialize event",
+            "url": "http://localhost:3080/04/index.html",
+            "webRoot": "${workspaceFolder}"
+        },
+        {
+            "type": "chrome",
+            "request": "launch",
+            "name": "Kjør 05 streaming",
+            "url": "http://localhost:3080/05/index.html",
+            "webRoot": "${workspaceFolder}"
+        },
+        {
+            "type": "chrome",
+            "request": "launch",
+            "name": "Kjør 21 kjør js i c",
+            "url": "http://localhost:3080/21/",
+            "webRoot": "${workspaceFolder}"
+        },
+        {
+            "type": "chrome",
+            "request": "launch",
+            "name": "Kjør 31 class w methods",
+            "url": "http://localhost:3080/31/myclass.html",
+            "webRoot": "${workspaceFolder}"
+        },
+        {
+            "type": "chrome",
+            "request": "launch",
+            "name": "Kjør 41 webapp m json",
+            "url": "http://localhost:3080/41/",
+            "webRoot": "${workspaceFolder}"
+        },
+        {
+            "type": "chrome",
+            "request": "launch",
+            "name": "Kjør 61 sdl 1 grafikk",
+            "url": "http://localhost:3080/06/index.html",
+            "webRoot": "${workspaceFolder}"
+        },
+        {
+            "type": "chrome",
+            "request": "launch",
+            "name": "Kjør 70 Livid frontend",
+            "url": "http://localhost:3080/70/index.html",
+            "webRoot": "${workspaceFolder}"
+        },
+        {
+            "type": "chrome",
+            "request": "launch",
+            "name": "Kjør imagemagick",
+            "url": "http://localhost:3000",
+            "webRoot": "${workspaceFolder}"
+        },
+    ]
+}
