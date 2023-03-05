@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+// Merk erstattet med window magick
 //import * as Magick from "wasm-imagemagick";
 
 
