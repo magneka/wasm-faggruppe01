@@ -1,4 +1,26 @@
-Intro:
+Hva er webassembly
+------------------
+Webassembly er et assembly lignende språk, som kan kompileres til WASM.
+Wasm kan kjøres i nettleser, men også uten, f.eks. backend, og fra Node.js.
+Emscripten er en LLVM C/C++ compiler som kan lage WASM filer.
+Wasm filer kjører med near native speed (dvs nesten like 
+fort som en C basert binærfil)
+I vår docker ligger også to wasm runtimes installert, 
+Wasmer og Wasmtime.  Med disse kan kjøre en wasm file utenfor nettleser.
+
+Vårt fokus er på browser, og vi ser på to områder:
+ - Kjøring av C/C++ fra javascript
+ - Kjøring av javascript fra C/C++
+ - DOM håndtering fra C/C++
+
+I tillegg er det et minneområde som kan benyttes til speedy
+overføring av data mellomC/C++ og javascript.
+
+WASI/WAGI for serverless vil vi sannsynligvis stifte bekjentskap
+med i nær fremtid.
+
+
+Eksempler:
 https://macos8.app/
 https://www.pcjs.org/
 https://lab.allotropia.de/wasm/ <== Libreoffice 300m teg
@@ -6,6 +28,16 @@ https://github.com/torch2424/wasmboy
 
 https://madewithwebassembly.com/
 https://webassembly.org/docs/use-cases/
+
+// Eksempler på applikasjoner som benytter webassembly
+Disney+ Amazon prime
+Google Earth
+Figma
+VLC - Video 
+Samsung Tizen player
+Unreal - gaming
+Unity - gaming
+
 
 01_helloworld_c
 ---------------
